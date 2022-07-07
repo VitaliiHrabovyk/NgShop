@@ -1,0 +1,27 @@
+
+<nav class="navbar bg-success">
+    <h2>My first angular project</h2>
+    <ul>
+        <li RouterLinkActive="active">
+            <a href="#" >Phones</a>
+        </li>
+        <li RouterLinkActive="active">
+            <a href="#" >Tablet</a>
+        </li>
+        <li RouterLinkActive="active">
+            <a href="#" >LapTop</a>
+        </li>
+        <li routerLinkActive="active">
+            <a routerLink="/cart" >Cart</a>
+        </li>
+        <li routerLinkActive="active">
+            <a routerLink="/admin/dashboard" >ADMIN</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="container">
+
+    <router-outlet></router-outlet>
+
+</div>

@@ -1,0 +1,50 @@
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <h2>ADD ITEM</h2>
+
+    <div class="form-control">
+        <label for="type">Type</label>
+        <select name="type" formControlName="type" >
+            <option value="phone">Phone</option>
+            <option value="tablet">Tablet</option>
+            <option value="laptop">Laptop</option>
+        </select>
+        <div *ngIf="form.get('type')?.dirty || form.get('type')?.touched" class="validation">
+            <small *ngIf="form.get('type')?.errors?.['required']">Type is required.</small><br>
+        </div>
+
+    </div>
+    <div class="form-control">
+        <label for="title">Title</label>
+        <input id="title" type="title" formControlName="title" required>
+        <div *ngIf="form.get('title')?.dirty || form.get('title')?.touched" class="validation">
+            <small *ngIf="form.get('title')?.errors?.['required']">Title is required</small><br>
+        </div>
+
+    </div>
+    <div class="form-control">
+        <label for="photo">Photo</label>
+        <quill-editor formControlName="photo"></quill-editor>
+
+    </div>
+    <div class="form-control">
+        <label for="info">Information</label>
+        <quill-editor formControlName="info"></quill-editor>
+
+        
+
+    </div>
+    <div class="form-control">
+        <label for="price">Price</label>
+        <input id="price" type="price" formControlName="price" required>
+        <div *ngIf="form.get('price')?.dirty || form.get('price')?.touched" class="validation">
+            <small *ngIf="form.get('price')?.errors?.['required']">Price is required</small><br>
+        </div>
+
+    </div>
+
+<button type="submit" class="btn btn-primary btn-block" [disabled]="form.invalid || submitted ">ADD</button>
+</form>
+
+<br>
+<hr>

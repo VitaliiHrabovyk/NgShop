@@ -1,0 +1,25 @@
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <h2>Login</h2>
+
+    <div class="form-control">
+        <label for="email">Email</label>
+        <input id="email" type="email" formControlName="email" required>
+        <div *ngIf="form.get('email')?.dirty || form.get('email')?.touched" class="validation">
+            <small *ngIf="form.get('email')?.invalid ">Enter valid email. </small>
+            <small *ngIf="form.get('email')?.errors?.['required']">Email is required</small><br>
+        </div>
+
+        <label for="password">Password</label>
+        <input id="password" type="password" formControlName="password" required>
+        <div *ngIf="form.get('password')?.dirty || form.get('password')?.touched" class="validation">
+            <small *ngIf="form.get('password')?.errors?.['minlength']">
+                Password too shirt. Required length- {{form.get('password')?.errors?.['minlength'].requiredLength}} 
+                Current length - {{form.get('password')?.errors?.['minlength'].actualLength}} 
+            </small>
+            <small *ngIf="form.get('password')?.errors?.['required']">Password is required</small><br>
+        </div>
+    </div>
+
+<button type="submit" class="btn btn-primary btn-block" [disabled]="form.invalid || submitted ">LOG IN</button>
+</form>

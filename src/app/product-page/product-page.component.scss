@@ -1,0 +1,23 @@
+.product{
+    .header{
+        display: flex;
+        justify-content: flex-end;
+        align-items: ceenter;
+
+    }
+
+    h2 {
+        margin-bottom: .5rem;
+    }
+
+
+}
+
+.flex {
+    display: flex;
+}
+
+.item {
+    width: 50%;
+    
+}

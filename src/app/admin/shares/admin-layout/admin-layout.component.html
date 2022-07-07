@@ -1,0 +1,41 @@
+<nav class="navbar bg-danger">
+    <h2>ADMIN PANEL</h2>
+    <ul *ngIf="auth.isAuthenicated(); else goLogin">
+        <li routerLinkActive="active">
+            <a routerLink="dashboard" >DASHBOARD</a>
+        </li>
+        <li routerLinkActive="active">
+            <a routerLink="add" >ADD ITEM</a>
+        </li>
+        <li routerLinkActive="active">
+            <a routerLink="orders" >ORDERS</a>
+        </li>
+        <li routerLinkActive="active">
+            <a href="#" (click)="logOut($event)" >LOGOUT</a>
+        </li>
+
+        <li routerLinkActive="active">
+            <a href="/" >TO SHOP</a>
+        </li>
+    </ul>
+
+    <ng-template #goLogin>
+        <ul>
+            <li routerLinkActive="active">
+                <a href="/" >TO SHOP</a>
+            </li>
+            <li routerLinkActive="active">
+                <a routerLink="login" >LOGIN</a>
+            </li>
+    
+        </ul>
+    
+    </ng-template>
+
+</nav>
+
+<div class="container">
+
+    <router-outlet></router-outlet>
+
+</div>
