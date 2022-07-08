@@ -12,6 +12,9 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
+  type = "phone"
+  cartProducts: Product [] = []
+
   create(product:any){
     
     return this.http.post(`${environment.fbDbUrl}/product.json`, product)
@@ -69,5 +72,14 @@ update(product:Product) {
   return this.http.patch(`${environment.fbDbUrl}/product/${product.id}.json`, product)
 }
 
+
+setType(type:any) {
+  this.type = type
+}
+
+
+addProduct(product) {
+  this.cartProducts.push(product)
+}
 
 }

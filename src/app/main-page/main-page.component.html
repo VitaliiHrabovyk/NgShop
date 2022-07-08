@@ -1,5 +1,5 @@
 <div *ngIf="products$ | async as products" class="dashboard">
-   <app-product  *ngFor="let product of $any(products)" [product]="product" class="box"> <!--disabling the type checking in template using $any() -->
+   <app-product  *ngFor="let product of $any(products) | sorting: productServ.type" [product]="product" class="box"> <!--disabling the type checking in template using $any() -->
     
   </app-product>
 </div>

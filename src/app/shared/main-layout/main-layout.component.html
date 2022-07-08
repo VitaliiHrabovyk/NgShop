@@ -3,16 +3,16 @@
     <h2>My first angular project</h2>
     <ul>
         <li RouterLinkActive="active">
-            <a href="#" >Phones</a>
+            <a (click)="setType('phone')">Phones</a>
         </li>
         <li RouterLinkActive="active">
-            <a href="#" >Tablet</a>
+            <a (click)="setType('tablet')" >Tablet</a>
         </li>
         <li RouterLinkActive="active">
-            <a href="#" >LapTop</a>
+            <a (click)="setType('laptop')" >LapTop</a>
         </li>
         <li routerLinkActive="active">
-            <a routerLink="/cart" >Cart</a>
+            <a (click)="setType('Cart')" routerLink="/cart" >Cart</a>
         </li>
         <li routerLinkActive="active">
             <a routerLink="/admin/dashboard" >ADMIN</a>

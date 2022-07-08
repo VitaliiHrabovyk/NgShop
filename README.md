@@ -1,1 +1,2 @@
-This is a study project
+This is a Angular study project
+

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription, VirtualTimeScheduler } from 'rxjs';
+import { Product } from 'src/app/shared/interfaces';
 import { ProductService } from 'src/app/shared/product.service';
+
+
 
 @Component({
   selector: 'app-dashboard-page',
@@ -14,9 +17,10 @@ export class DashboardPageComponent implements OnInit {
 
   ) { }
 
-  products:any
+  products:any[]
   pSub!: Subscription
   rSub!: Subscription
+  productName!:string
 
 
   ngOnInit(): void {

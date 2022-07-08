@@ -53,7 +53,7 @@ export class AddPageComponent implements OnInit {
       this.submitted = true;
       this.form.reset()
       this.submitted = false
-      this.route.navigate(["/"])
+      this.route.navigate(["/admin", "add"])
 
     })
   }
