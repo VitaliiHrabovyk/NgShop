@@ -1,13 +1,18 @@
 <div *ngIf="cartProducts.length > 0; else empty" class="container">
     <h2 class="text-center">Your order for now</h2>
 
+
+    <div *ngIf="added" class="alert alert-success" role="alert">
+        {{added}}
+      </div>
+
     <table>
         <tbody>
             <tr *ngFor="let cartProduct of cartProducts; let i = index">
                 <td>{{cartProduct.type}}</td>
                 <td>{{cartProduct.title}}</td>
                 <td>
-                    <button class="btn btn-danger">Delete</button>
+                    <button class="btn btn-danger" (click)="delete(cartProduct)">Delete</button>
                 </td>
                 <td>{{cartProduct.price}}</td>
             </tr>
@@ -16,6 +21,50 @@
     <hr>
     <b class="right">Total: {{totalPrice}} ₴</b>
     
+    <h2 class="text-center">Delivery</h2>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="form-control">
+            <label for="name">Your name</label>
+            <input id="name" type="name" formControlName="name" required>
+            <div *ngIf="form.get('name')?.dirty || form.get('name')?.touched" class="validation">
+                <small *ngIf="form.get('name')?.errors?.['required']">Please, enter your name</small><br>
+            </div>
+    
+        </div>
+        
+        <div class="form-control">
+            <label for="phone">Phone number</label>
+            <input id="phone" type="phone" formControlName="phone" required>
+            <div *ngIf="form.get('phone')?.dirty || form.get('phone')?.touched" class="validation">
+                <small *ngIf="form.get('phone')?.errors?.['required']">Please, enter your contact phone number</small><br>
+            </div>
+    
+        </div>
+
+        <div class="form-control">
+            <label for="adress">Delivery adress</label>
+            <input id="adress" type="adress" formControlName="adress" required>
+            <div *ngIf="form.get('adress')?.dirty || form.get('adress')?.touched" class="validation">
+                <small *ngIf="form.get('adress')?.errors?.['required']">Please, enter your delivery adress</small><br>
+            </div>
+    
+        </div>
+
+    
+        <div class="form-control">
+            <label for="payment">Payment method</label>
+            <select name="payment" formControlName="payment" >
+                <option value="cash">Cash</option>
+                <option value="card">Card</option>
+            </select>
+        </div>
+    
+    <button type="submit" class="btn btn-primary btn-block" [disabled]="form.invalid || submitted ">ADD</button>
+    </form>
+
+
 </div>
 
 
