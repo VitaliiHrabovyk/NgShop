@@ -2,7 +2,7 @@
     <h2>{{product.title}}</h2>
     <div class="flex-center" style="min-height: 350px;"><quill-view-html [content]="product.photo"></quill-view-html>    </div>
     <h2>price: {{product.price}}</h2>
-    <button [routerLink]="['/product', product.id]" class="btn btn-dark">Open</button>
-    <button [routerLink]="['/cart']" class="btn btn-dark">Add to cart</button>
+    <button [routerLink]="['/product', product.id]" class="btn btn-success">Open</button>
+    <button [routerLink]="['/cart']" class="btn btn-success">Add to cart</button>
 
 </div>
