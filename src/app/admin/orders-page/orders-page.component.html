@@ -1,1 +1,42 @@
-<p>orders-page works!</p>
+
+
+<div *ngIf="orders; else noOrders">
+    <h2>Orders</h2>
+
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Phone</th>
+                <th>Name</th>
+                <th>Adress</th>
+                <th>Items</th>
+                <th>Price</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+    <tbody>
+        <tr *ngFor="let order of orders">
+            <td>{{order.date | date: 'medium'}}</td>
+            <td>{{order.phone}}</td>
+            <td>{{order.name}}</td>
+            <td>{{order.adress}}</td>
+            <td>
+                <div *ngFor="let item of order.items">{{item.title}}</div>
+            </td>
+            <td>{{order.price}} ₴ by {{order.payment}}</td>
+            <td>
+                <button class="btn btn-success" (click)="remove(order.id)">Complited <span class="material-symbols-outlined">done</span></button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+</div>
+
+
+<ng-template #noOrders>
+    <p class="text-center">There is no orders :(</p>
+</ng-template>
